@@ -1,31 +1,28 @@
-<h1>Create a new contact</h1>
+<h1>Create a new company</h1>
 <div>
-    <form action="new_contact.php" method="post" class=" was-validated row g-1 ">
+    <form action="new_company.php" method="post" class=" was-validated row g-1 ">
         <div>
-            <label for="lastName" class="form-label">Name</label><br>
-            <input type="text" name="lastName" class="form-control is-valid" value="" required>
+            <label for="name" class="form-label">Company name</label><br>
+            <input type="text" name="name" class="form-control is-valid" value="" required>
         </div>
         <div>
-            <label for="firstName" class="form-label">Name</label><br>
-            <input type="text" name="firstName" class="form-control is-valid" value="" required>
+            <label for="vat" class="form-label">TVA number</label><br>
+            <input type="text" name="vat" class="form-control is-valid" value="" required>
+        </div>
+        <div>
+            <label for="country" class="form-label">Country</label><br>
+            <input type="text" name="country" class="form-control is-valid" value="" required>
+        </div>
+        <div>
+            <label for="type" class="form-label">Company type</label><br>
+            <select name="type" class="form-select">
+                <option value="clients">Clients</option>
+                <option value="provider">Provider</option>
+            </select>
         </div>
         <div>
             <label for="phone" class="form-label">Phone</label><br>
             <input type="tel" name="phone" class="form-control is-valid" value="" required>
-        </div>
-        <div>
-            <label for="email" class="form-label">Email</label><br>
-            <input type="email" name="email" class="form-control is-valid" value="" required>
-        </div>
-        <div>
-            <label for="society" class="form-label">Company</label><br>
-            <select name="society" class="form-select">
-                <option value="Très facile">Très facile</option>
-                <option value="Facile">Facile</option>
-                <option value="Moyen">Moyen</option>
-                <option value="Difficile">Difficile</option>
-                <option value="Très difficile">Très difficile</option>
-            </select>
         </div>
         <button type="submit" name="button" class="btn btn-primary mb-3">Envoyer</button>
     </form>
@@ -34,43 +31,42 @@
 error_reporting(E_ALL ^ E_WARNING);
 if (isset($_POST['button'])) {
     $errors = array();
-    $lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
-    $firstName  = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $vat  = filter_var($_POST['vat'], FILTER_SANITIZE_STRING);
+    $country = filter_var($_POST['country'], FILTER_SANITIZE_STRING);
+    $type = filter_var($_POST['type'], FILTER_SANITIZE_STRING);
     $phone = filter_var($_POST['phone'], FILTER_SANITIZE_NUMBER_INT);
-    $email = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
-    $society = filter_var($_POST['society'], FILTER_SANITIZE_STRING);
-
-    if (false === filter_var($lastName, FILTER_SANITIZE_STRING)) {
-        $errors['lastName'] = '<div class="alert alert-danger" role="alert">le nom est invalide.</div>';
+    if (false === filter_var($name, FILTER_SANITIZE_STRING)) {
+        $errors['name'] = '<div class="alert alert-danger" role="alert">le nom est invalide.</div>';
     } else {
         echo '<div class="alert alert-success" role="alert">le nom est considérée comme valide.</div>';
     }
-    if (false === filter_var($firstName, FILTER_SANITIZE_STRING)) {
-        $errors['firstName'] = '<div class="alert alert-danger" role="alert">le prénom est invalide.</div>';
+    if (false === filter_var($vat, FILTER_SANITIZE_STRING)) {
+        $errors['vat'] = '<div class="alert alert-danger" role="alert">le numéro de tva est invalide.</div>';
     } else {
-        echo '<div class="alert alert-success" role="alert">la prénom  est bien nettoyé et est considérée comme valide.</div>';
+        echo '<div class="alert alert-success" role="alert">le numéro de tva  est bien nettoyé et est considérée comme valide.</div>';
+    }
+    if (false === filter_var($country, FILTER_SANITIZE_STRING)) {
+        $errors['country'] = '<div class="alert alert-danger" role="alert">le pays est invalide.</div>';
+    } else {
+        echo '<div class="alert alert-success" role="alert">le pays est considérée comme valide.</div>';
+    }
+    if (false === filter_var($type, FILTER_SANITIZE_STRING)) {
+        $errors['type'] = '<div class="alert alert-danger" role="alert">le type est invalide.</div>';
+    } else {
+        echo '<div class="alert alert-success" role="alert">le type est considérée comme valide.</div>';
     }
     if (false === filter_var($phone, FILTER_SANITIZE_NUMBER_INT)) {
         $errors['phone'] = '<div class="alert alert-danger" role="alert">le numéro de tél  est invalide.</div>';
     } else {
         echo '<div class="alert alert-success" role="alert">le numéro de tél est bien nettoyé et est considérée comme valide.</div>';
     }
-    if (false === filter_var($email, FILTER_SANITIZE_EMAIL)) {
-        $errors['email'] = '<div class="alert alert-danger" role="alert">email  est invalide.</div>';
-    } else {
-        echo '<div class="alert alert-success" role="alert">email est bien nettoyé et est considérée comme valide.</div>';
-    }
-    if (false === filter_var($society, FILTER_SANITIZE_STRING)) {
-        $errors['society'] = '<div class="alert alert-danger" role="alert">la society est invalide.</div>';
-    } else {
-        echo '<div class="alert alert-success" role="alert">la society est considérée comme valide.</div>';
-    }
     $data = [
-        'lastName' => $_POST['lastName'],
-        'lastName' => $_POST['firstName'],
-        'phone' => ($_POST['phone']),
-        'email' => $_POST['email'],
-        'society' => ($_POST['society']),
+        'name' => $_POST['name'],
+        'vat' => $_POST['vat'],
+        'country' => ($_POST['country']),
+        'type' => $_POST['type'],
+        'phone' => $_POST['phone']
     ];
 
 
@@ -79,7 +75,7 @@ if (isset($_POST['button'])) {
         $bdd = new PDO('mysql:host=localhost;dbname=cogip', 'root', '');
 
         $insertion =
-            'INSERT INTO hiking (name, difficulty, distance, duration, height_difference ) VALUES (:name,:difficulty,:distance,:duration,:height_difference)';
+            'INSERT INTO society (name, vat, country, type, phone ) VALUES (:name,:vat,:country,:type,:phone)';
 
         $bdd->prepare($insertion)->execute($data);
 

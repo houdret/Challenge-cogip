@@ -1,3 +1,4 @@
+
 <h1>Welcome to the COGIP</h1>
 <p>Bonjour !</p>
 

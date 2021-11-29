@@ -1,3 +1,10 @@
+<?php
+error_reporting(E_ALL ^ E_WARNING);
+$bdd = new PDO('mysql:host=localhost;dbname=cogip', 'root', '');
+
+$resultat = $bdd->query("SELECT * FROM society");
+
+?>
 <h1>Create a new contact</h1>
 <div>
     <form action="new_contact.php" method="post" class=" was-validated row g-1 ">
@@ -6,7 +13,7 @@
             <input type="text" name="lastName" class="form-control is-valid" value="" required>
         </div>
         <div>
-            <label for="firstName" class="form-label">Name</label><br>
+            <label for="firstName" class="form-label">First name</label><br>
             <input type="text" name="firstName" class="form-control is-valid" value="" required>
         </div>
         <div>
@@ -20,11 +27,10 @@
         <div>
             <label for="society" class="form-label">Company</label><br>
             <select name="society" class="form-select">
-                <option value="Très facile">Très facile</option>
-                <option value="Facile">Facile</option>
-                <option value="Moyen">Moyen</option>
-                <option value="Difficile">Difficile</option>
-                <option value="Très difficile">Très difficile</option>
+            <?php while ($donnees = $resultat->fetch())
+            {
+                echo '<option value="'.$donnees['name'].'">'.$donnees['name'].'</option>';
+            } ?>
             </select>
         </div>
         <button type="submit" name="button" class="btn btn-primary mb-3">Envoyer</button>
