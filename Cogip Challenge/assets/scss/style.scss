@@ -1,0 +1,82 @@
+// * ========================== | Import |  ==========================
+@import "./libs/reset.scss";
+@import "./libs/fonts.scss";
+@import "./libs/tableStyle.scss";
+
+// * ========================== | Setup Var |  ==========================
+:root{
+    --clr-main:        rgb(34, 55, 100);
+    --clr-secondary:   rgb(245, 245, 245);
+    --clr-accent:      rgb(191,138,73);
+    --clr-null:        rgb(128, 128, 128);
+    --clr-white:       rgb(255, 255, 255);
+    --clr-black:       rgb(0, 0, 0);
+
+    --clr-table-th:      rgb(22, 135, 187);
+    --clr-table-tr:      rgb(245, 245, 245);
+    --clr-bg-tr-hover:   rgb(209,252,228);
+    --clr-text-tr-hover: rgb(85, 85, 85);
+
+    --font-main: 'OpenSans-Regular';
+}
+// var(--white-color);
+
+@mixin flex--center { 
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+// @include  flex--center;
+// font-family: var(--font-main);
+
+// * ========================== | Html & Body |  ==========================
+html{
+    background-color: var(--clr-main);
+}
+h2{
+    text-align: center;
+}
+h2, h3{
+    font-size:3rem;
+    color: var(--clr-white);
+    font-family: var(--font-main);
+    margin: 2rem 0;
+}
+// * ========================== | Nav |  ==========================
+
+nav { 
+    display: flex;
+    justify-content: flex-end;
+    padding: 5rem 10rem;
+
+    ul > li {
+        display: inline-block;
+        margin: 0 1rem;
+    }
+    a{
+        font-size: 2rem;
+        font-family: var(--font-main);
+        color: var(--clr-white);
+    }
+
+    a:hover{
+        color: var( --clr-table-th);
+    }
+}
+// * ========================== | Table |  ==========================
+
+.tablesContainer{
+}
+.tableContainer {
+    margin: 0 auto;
+    width: fit-content;
+    padding: 33px 30px;
+}
+
+a {
+	text-decoration: none;
+    color: var(--clr-null); 
+}
+
+
