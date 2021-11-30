@@ -16,7 +16,7 @@
 <!-- navigation nav -->
 <?php include('assets\php\navBar.php'); ?>
 
-<h2>COGIP: Invoices directory</h2>
+<h2>COGIP: Invoice directory</h2>
 
 
 <!--! ====================| Section Tables |==================== -->

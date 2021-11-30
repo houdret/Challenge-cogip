@@ -7,7 +7,7 @@
     <meta name="author" content="sylvain valvassori">
 
     <link rel="stylesheet" href="../css/style.css">
-    <?php include('read.php'); ?>
+    <?php include('readDetail.php'); ?>
 
     <title>Details Contact</title>
 </head>
@@ -26,7 +26,7 @@
     <!-- https://blog.hubspot.com/website/html-space -->
 
     <div class='tableContainer'>
-        <p>Contact&ensp;:     &ensp;<span>baaaaaaaa booo</span></p>
+        <p>Contact&ensp;:     &ensp;<span><?php echo $contactDetailName; ?></span></p>
         <p>Society&ensp; :    &ensp;<span>baaaaaaaa booo</span></p>
         <p>Email&emsp;&ensp;: &ensp;<span>baaaaaaaa booo</span></p>
         <p>Phone&ensp;&ensp;: &ensp;<span>baaaaaaaa booo</span></p>
@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php echo $contactDirectory; ?>
+                <?php echo $contactDetail; ?>
             </tbody>
         </table>
     </div>

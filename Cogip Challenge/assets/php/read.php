@@ -21,7 +21,7 @@ include('connect_db.php');
     $contactDirectory = '';
     foreach($contacts as $contact ){
         $contactDirectory .= 
-            '<tr data-href="assets\php\detailContact.php">
+            '<tr data-href="assets\php\detailContact.php?id='.$contact['id'].'">
                 <td class="column1">'.$contact['lastName'].' '.$contact['firstName'].'</td>
                 <td class="column2">'.$contact['phone']  .'</td>
                 <td class="column3">'.$contact['email']  .'</td>

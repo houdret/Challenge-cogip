@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 29 nov. 2021 à 22:54
+-- Généré le : mar. 30 nov. 2021 à 16:51
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE IF NOT EXISTS `contacts` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `lastName` varchar(50) NOT NULL,
   `firstName` varchar(50) NOT NULL,
-  `phone` int(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `society` varchar(50) NOT NULL,
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
@@ -42,31 +42,13 @@ CREATE TABLE IF NOT EXISTS `contacts` (
 -- Déchargement des données de la table `contacts`
 --
 
-INSERT INTO `contacts` (`lastName`, `firstName`, `phone`, `email`, `society`, `id`) VALUES
-('Gregory', 'Peter', 5554567, 'peter.gregory@raviga.com', 'Raviga', 1),
-('Schrute', 'Dwight', 5559859, 'dwight.schrute@ddmfl.com', 'Dunder Mifflin', 2),
-('Howe', 'Cameron', 5557896, 'cam.howe@mutiny.net ', 'Mutiny', 3),
-('Belson', 'Gavin', 5554213, 'gavin@hooli.com', 'Hooli', 4),
-('Yang', 'Jian', 5554567, 'jian.yang@phoque.off', 'Phoque Off', 5),
-('Gilfoyle', 'Betram', 5550987, 'gilfoyle@piedpiper.com', 'Pied Piper', 6),
-('Gregory', 'Peter', 5554567, 'peter.gregory@raviga.com', 'Raviga', 7),
-('Schrute', 'Dwight', 5559859, 'dwight.schrute@ddmfl.com', 'Dunder Mifflin', 8),
-('Howe', 'Cameron', 5557896, 'cam.howe@mutiny.net ', 'Mutiny', 9),
-('Belson', 'Gavin', 5554213, 'gavin@hooli.com', 'Hooli', 10),
-('Yang', 'Jian', 5554567, 'jian.yang@phoque.off', 'Phoque Off', 11),
-('Gilfoyle', 'Betram', 5550987, 'gilfoyle@piedpiper.com', 'Pied Piper', 12),
-('Gregory', 'Peter', 5554567, 'peter.gregory@raviga.com', 'Raviga', 13),
-('Schrute', 'Dwight', 5559859, 'dwight.schrute@ddmfl.com', 'Dunder Mifflin', 14),
-('Howe', 'Cameron', 5557896, 'cam.howe@mutiny.net ', 'Mutiny', 15),
-('Belson', 'Gavin', 5554213, 'gavin@hooli.com', 'Hooli', 16),
-('Yang', 'Jian', 5554567, 'jian.yang@phoque.off', 'Phoque Off', 17),
-('Gilfoyle', 'Betram', 5550987, 'gilfoyle@piedpiper.com', 'Pied Piper', 18),
-('Gregory', 'Peter', 5554567, 'peter.gregory@raviga.com', 'Raviga', 19),
-('Schrute', 'Dwight', 5559859, 'dwight.schrute@ddmfl.com', 'Dunder Mifflin', 20),
-('Howe', 'Cameron', 5557896, 'cam.howe@mutiny.net ', 'Mutiny', 21),
-('Belson', 'Gavin', 5554213, 'gavin@hooli.com', 'Hooli', 22),
-('Yang', 'Jian', 5554567, 'jian.yang@phoque.off', 'Phoque Off', 23),
-('Gilfoyle', 'Betram', 5550987, 'gilfoyle@piedpiper.com', 'Pied Piper', 24);
+INSERT INTO `contacts` (`id`, `lastName`, `firstName`, `phone`, `email`, `society`) VALUES
+(1, 'Gregory', 'Peter', '555-4567', 'peter.gregory@raviga.com', 'Raviga'),
+(2, 'Schrute', 'Dwight', '555-9859', 'dwight.schrute@ddmfl.com', 'Dunder Mifflin'),
+(3, 'Howe', 'Cameron', '555-7896', 'cam.howe@mutiny.net ', 'Mutiny'),
+(4, 'Belson', 'Gavin', '555-4213', 'gavin@hooli.com', 'Hooli'),
+(5, 'Yang', 'Jian', '555-4567', 'jian.yang@phoque.off', 'Phoque Off'),
+(6, 'Gilfoyle', 'Betram', '555-0987', 'gilfoyle@piedpiper.com', 'Pied Piper');
 
 -- --------------------------------------------------------
 
@@ -76,11 +58,12 @@ INSERT INTO `contacts` (`lastName`, `firstName`, `phone`, `email`, `society`, `i
 
 DROP TABLE IF EXISTS `invoices`;
 CREATE TABLE IF NOT EXISTS `invoices` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `society_id` int(2) NOT NULL,
   `numbers` varchar(50) NOT NULL,
   `dates` date NOT NULL,
   `society` varchar(30) NOT NULL,
   `type` varchar(30) NOT NULL,
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
@@ -88,22 +71,22 @@ CREATE TABLE IF NOT EXISTS `invoices` (
 -- Déchargement des données de la table `invoices`
 --
 
-INSERT INTO `invoices` (`numbers`, `dates`, `society`, `type`, `id`) VALUES
-('F20190404-004', '2019-04-04', 'Jouets Jean-Michel', 'Fournisseur', 1),
-('F20190404-003', '2019-04-04', 'Dunder Mifflin', 'Client', 2),
-('F20190404-002', '2019-04-04', 'Pierre Cailloux  ', 'Fournisseur', 3),
-('F20190404-001', '2019-04-04', 'Pied Pipper', 'Client', 4),
-('F20190403-654', '2019-04-04', 'Raviga ', 'Client', 5),
-('F20190404-004', '2019-04-04', 'Jouets Jean-Michel', 'Fournisseur', 6),
-('F20190404-003', '2019-04-04', 'Dunder Mifflin', 'Client', 7),
-('F20190404-002', '2019-04-04', 'Pierre Cailloux  ', 'Fournisseur', 8),
-('F20190404-001', '2019-04-04', 'Pied Pipper', 'Client', 9),
-('F20190403-654', '2019-04-04', 'Raviga ', 'Client', 10),
-('F20190404-004', '2019-04-04', 'Jouets Jean-Michel', 'Fournisseur', 11),
-('F20190404-003', '2019-04-04', 'Dunder Mifflin', 'Client', 12),
-('F20190404-002', '2019-04-04', 'Pierre Cailloux  ', 'Fournisseur', 13),
-('F20190404-001', '2019-04-04', 'Pied Pipper', 'Client', 14),
-('F20190403-654', '2019-04-04', 'Raviga ', 'Client', 15);
+INSERT INTO `invoices` (`id`, `society_id`, `numbers`, `dates`, `society`, `type`) VALUES
+(1, 3, 'F20190404-004', '2019-04-04', 'Jouets Jean-Michel', 'Fournisseur'),
+(2, 2, 'F20190404-003', '2019-04-04', 'Dunder Mifflin', 'Client'),
+(3, 6, 'F20190404-002', '2019-04-04', 'Pierre Cailloux  ', 'Fournisseur'),
+(4, 9, 'F20190404-001', '2019-04-04', 'Pied Pipper', 'Client'),
+(5, 1, 'F20190403-654', '2019-04-03', 'Raviga ', 'Client'),
+(6, 3, 'F20180404-004', '2018-04-04', 'Jouets Jean-Michel', 'Fournisseur'),
+(7, 2, 'F20180414-003', '2018-04-14', 'Dunder Mifflin', 'Client'),
+(8, 6, 'F20180408-002', '2018-04-08', 'Pierre Cailloux  ', 'Fournisseur'),
+(9, 9, 'F20180407-001', '2018-04-07', 'Pied Pipper', 'Client'),
+(10, 1, 'F20180403-654', '2018-04-03', 'Raviga ', 'Client'),
+(11, 3, 'F20190404-004', '2019-04-04', 'Jouets Jean-Michel', 'Fournisseur'),
+(12, 2, 'F20170404-003', '2017-04-04', 'Dunder Mifflin', 'Client'),
+(13, 6, 'F20170524-002', '2017-05-24', 'Pierre Cailloux  ', 'Fournisseur'),
+(14, 9, 'F20170404-001', '2017-04-04', 'Pied Pipper', 'Client'),
+(15, 1, 'F20170403-654', '2017-04-03', 'Raviga ', 'Client');
 
 -- --------------------------------------------------------
 
@@ -113,12 +96,11 @@ INSERT INTO `invoices` (`numbers`, `dates`, `society`, `type`, `id`) VALUES
 
 DROP TABLE IF EXISTS `societies`;
 CREATE TABLE IF NOT EXISTS `societies` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(60) NOT NULL,
   `vat` varchar(50) NOT NULL,
   `country` varchar(40) NOT NULL,
   `type` varchar(50) NOT NULL,
-  `phone` int(50) NOT NULL,
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
@@ -126,23 +108,15 @@ CREATE TABLE IF NOT EXISTS `societies` (
 -- Déchargement des données de la table `societies`
 --
 
-INSERT INTO `societies` (`name`, `vat`, `country`, `type`, `phone`, `id`) VALUES
-('Raviga ', 'US456 654 342', 'United States ', 'clients', 555000, 1),
-('Dunder Mifflin ', 'US678 765 765 ', 'United States', 'clients', 555111, 2),
-('Jouets Jean-Michel', 'FR 677 544 000', ' France', 'clients', 555222, 3),
-('Bob Vance Refrig', 'US456 654 687', 'United States ', 'clients', 555333, 4),
-('Raviga ', 'US456 654 342', 'United States ', 'clients', 555444, 5),
-('Dunder Mifflin ', 'US678 765 765 ', 'United States', 'clients', 555555, 6),
-('Jouets Jean-Michel', 'FR 677 544 000', ' France', 'clients', 555666, 7),
-('Bob Vance Refrig', 'US456 654 687', 'United States ', 'clients', 555777, 8),
-('Belgalol', 'BE0876 654 665', 'Belgique  ', 'provider', 555888, 9),
-('Pierre Cailloux ', 'FR 678 908 654 ', 'France ', 'provider', 555999, 10),
-('Proximdr ', 'BE0876 985 665', ' Belgique ', 'provider', 555010, 11),
-('ElectricPower', 'IT 256 852 542', 'Italie', 'provider', 555011, 12),
-('Belgalol', 'BE0876 654 665', 'Belgique  ', 'provider', 555012, 13),
-('Pierre Cailloux ', 'FR 678 908 654 ', 'France ', 'provider', 555013, 14),
-('Proximdr ', 'BE0876 985 665', ' Belgique ', 'provider', 555014, 15),
-('ElectricPower', 'IT 256 852 542', 'Italie', 'provider', 555015, 16);
+INSERT INTO `societies` (`id`, `name`, `vat`, `country`, `type`) VALUES
+(1, 'Raviga ', 'US456 654 342', 'United States ', 'clients'),
+(2, 'Dunder Mifflin ', 'US678 765 765 ', 'United States', 'clients'),
+(3, 'Jouets Jean-Michel', 'FR 677 544 000', ' France', 'clients'),
+(4, 'Bob Vance Refrig', 'US456 654 687', 'United States ', 'clients'),
+(5, 'Belgalol', 'BE0876 654 665', 'Belgique  ', 'provider'),
+(6, 'Pierre Cailloux ', 'FR 678 908 654 ', 'France ', 'provider'),
+(7, 'Proximdr ', 'BE0876 985 665', ' Belgique ', 'provider'),
+(8, 'ElectricPower', 'IT 256 852 542', 'Italie', 'provider');
 
 -- --------------------------------------------------------
 
