@@ -58,6 +58,7 @@ nav {
         font-size: 2rem;
         font-family: var(--font-main);
         color: var(--clr-white);
+        text-decoration: none;
     }
 
     a:hover{
@@ -66,17 +67,25 @@ nav {
 }
 // * ========================== | Table |  ==========================
 
-.tablesContainer{
-}
+// .tablesContainer{}
+
 .tableContainer {
     margin: 0 auto;
     width: fit-content;
     padding: 33px 30px;
+    
+    p{
+        font-size: 2rem;
+        color: var(--clr-white);
+        font-family: var(--font-main);
+        margin: 1rem 0;
+
+    }
+
+    h3{
+        margin-top: 10rem;
+    }
 }
 
-a {
-	text-decoration: none;
-    color: var(--clr-null); 
-}
 
 

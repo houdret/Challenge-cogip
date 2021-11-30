@@ -6,30 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="sylvain valvassori">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <?php include('assets\php\read.php'); ?>
+    <link rel="stylesheet" href="../css/style.css">
+    <?php include('read.php'); ?>
 
-    <title>Contacts</title>
+    <title>Details Contact</title>
 </head>
 <body>
 <!--! ====================| Header |==================== -->
 <!-- navigation nav -->
-<?php include('assets\php\navBar.php'); ?>
+<?php include('navBar.php'); ?>
 
-<h2>COGIP: Contact directory</h2>
+<h2>Contact : </h2>
 
+<span></span>
 
-<!--! ====================| Section Tables |==================== -->
 <section class="containerTables">
     <!--* ====================| table des factures |==================== -->
+    <!-- &ensp; ajout un espace de 2 + l'espace compris entre la balise et les caractères -->
+    <!-- https://blog.hubspot.com/website/html-space -->
+
     <div class='tableContainer'>
+        <p>Contact&ensp;:     &ensp;<span>baaaaaaaa booo</span></p>
+        <p>Society&ensp; :    &ensp;<span>baaaaaaaa booo</span></p>
+        <p>Email&emsp;&ensp;: &ensp;<span>baaaaaaaa booo</span></p>
+        <p>Phone&ensp;&ensp;: &ensp;<span>baaaaaaaa booo</span></p>
+        <h3>Contact for the invoices</h3>
         <table class="tableContact">
             <thead>
                 <tr class="tableHead">
-                    <th class="column1">Name</th>
-                    <th class="column2">Phone</th>
-                    <th class="column3">Email</th>
-                    <th class="column3">Society</th>
+                    <th class="column1">N° Invoice</th>
+                    <th class="column2">Date</th>
                 </tr>
             </thead>
             <tbody>

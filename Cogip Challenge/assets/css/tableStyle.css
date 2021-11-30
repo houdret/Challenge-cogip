@@ -38,6 +38,7 @@ tbody tr {
   color: var(--clr-null);
   line-height: 1.2;
   font-weight: unset;
+  cursor: pointer;
 }
 
 tbody tr:hover {

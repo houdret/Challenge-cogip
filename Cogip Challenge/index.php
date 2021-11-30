@@ -7,6 +7,7 @@
     <meta name="author" content="sylvain valvassori">
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="assets\js\clickRow.js"></script>
     <?php include('assets\php\homeDatas.php'); ?>
 
 
@@ -16,27 +17,7 @@
 <body>
 <!--! ====================| Header |==================== -->
 <!-- navigation nav -->
-<header>
-    <nav>
-        <ul>
-            <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="contacts.php">Contacts</a>
-            </li>
-            <li>
-                <a href="societies.php">Societies</a>
-            </li>
-            <li>
-                <a href="invoices.php">Invoices</a>
-            </li>
-            <li>
-                <a href="connexion.php">Connexion</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+<?php include('assets\php\navBar.php'); ?>
 
 <!--! ====================| Section Tables |==================== -->
 <section class="tablesContainer">
@@ -95,7 +76,6 @@
             </tbody>
         </table>
     </div>
-
 </section>
 
 

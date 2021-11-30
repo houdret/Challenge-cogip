@@ -14,24 +14,7 @@
 <body>
 <!--! ====================| Header |==================== -->
 <!-- navigation nav -->
-<header>
-    <nav>
-        <ul>
-            <li>
-                <a href="index.php"> home</a>
-            </li>
-            <li>
-                <a href="contacts.php"> contact</a>
-            </li>
-            <li>
-                <a href="societies.php"> society</a>
-            </li>
-            <li>
-                <a href="invoices.php"> invoices</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+<?php include('assets\php\navBar.php'); ?>
 
 <h2>COGIP: Invoices directory</h2>
 

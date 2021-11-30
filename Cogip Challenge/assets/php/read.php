@@ -1,6 +1,10 @@
+<!-- ====================| Link row effect with JS |==================== -->
+<script src="assets\js\clickRow.js"></script>
+
+
 <?php 
 //* ==========| Connect DB |==========
-include('assets\php\connect_db.php');
+include('connect_db.php');
 
 
 
@@ -17,11 +21,11 @@ include('assets\php\connect_db.php');
     $contactDirectory = '';
     foreach($contacts as $contact ){
         $contactDirectory .= 
-            '<tr>
-                <td class="column1"><a href="#">'.$contact['lastName'].' '.$contact['firstName'].'</a></td>
-                <td class="column2"><a href="#">'.$contact['phone'].'</a></td>
-                <td class="column3"><a href="#">'.$contact['email'].'</a></td>
-                <td class="column4"><a href="#">'.$contact['society'].'</a></td> 
+            '<tr data-href="assets\php\detailContact.php">
+                <td class="column1">'.$contact['lastName'].' '.$contact['firstName'].'</td>
+                <td class="column2">'.$contact['phone']  .'</td>
+                <td class="column3">'.$contact['email']  .'</td>
+                <td class="column4">'.$contact['society'].'</td> 
             </tr>'
         ;   
     }
@@ -40,10 +44,10 @@ $clients = $reqClient -> fetchALL();
 $clientDirectory = '';
 foreach($clients as $client ){
     $clientDirectory .= 
-        '<tr>
-            <td class="column1"><a href="#">'.$client['name'].'</a></td>
-            <td class="column2"><a href="#">'.$client['vat'].'</a></td>
-            <td class="column3"><a href="#">'.$client['country'].'</a></td>
+        '<tr data-href="societies.php">
+            <td class="column1">'.$client['name']   .'</td>
+            <td class="column2">'.$client['vat']    .'</td>
+            <td class="column3">'.$client['country'].'</td>
         </tr>'
     ;   
 }
@@ -62,10 +66,10 @@ $providers = $reqProvider -> fetchALL();
 $providerDirectory = '';
 foreach($providers as $provider ){
     $providerDirectory .= 
-        '<tr>
-            <td class="column1"><a href="#">'.$provider['name'].'</a></td>
-            <td class="column2"><a href="#">'.$provider['vat'].'</a></td>
-            <td class="column3"><a href="#">'.$provider['country'].'</a></td>
+        '<tr data-href="societies.php">
+            <td class="column1">'.$provider['name']   .'</td>
+            <td class="column2">'.$provider['vat']    .'</td>
+            <td class="column3">'.$provider['country'].'</td>
         </tr>'
     ;   
 }
@@ -84,11 +88,11 @@ $invoices = $reqInvoice -> fetchALL();
 $invoicesDirectory = '';
 foreach($invoices as $invoice ){
     $invoicesDirectory .= 
-        '<tr>
-            <td class="column1"><a href="#">'.$invoice['numbers'].'</a></td>
-            <td class="column2"><a href="#">'.$invoice['dates'].'</a></td>
-            <td class="column3"><a href="#">'.$invoice['society']  .'</a></td>
-            <td class="column4"><a href="#">'.$invoice['type']   .'</a></td> 
+        '<tr data-href="invoices.php">
+            <td class="column1">'.$invoice['numbers'].'</td>
+            <td class="column2">'.$invoice['dates']  .'</td>
+            <td class="column3">'.$invoice['society'].'</td>
+            <td class="column4">'.$invoice['type']   .'</td> 
         </tr>'
     ;   
 }
