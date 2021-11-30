@@ -7,7 +7,7 @@ class App
     private  static $database;
 
 
-    const DB_NAME = 'blog';
+    const DB_NAME = 'cogip';
     const DB_USER = 'root';
     const DB_PASS = '';
     const DB_HOST = 'localhost';

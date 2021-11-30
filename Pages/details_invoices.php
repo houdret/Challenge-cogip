@@ -4,7 +4,7 @@
     <h3>Company linked to the invoice</h3>
     <div class="col-sm-8">
         <?php
-        foreach (\App\Table\Invoices::getLast() as $post ): ?>
+        foreach (\App\Table\Invoice::getLast() as $post ): ?>
 
             <!--<h2>
                 <a href="<?/*= $post->url */?>"><?/*= $post->titre; */?></a>,

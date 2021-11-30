@@ -18,7 +18,7 @@
     <p>Contact person for these invoices: </p>
     <div class="col-sm-8">
         <?php
-        foreach (\App\Table\Invoices::getLast() as $post ): ?>
+        foreach (\App\Table\Invoice::getLast() as $post ): ?>
 
             <!--<h2>
                 <a href="<?/*= $post->url */?>"><?/*= $post->titre; */?></a>,
