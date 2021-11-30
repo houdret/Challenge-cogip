@@ -6,7 +6,7 @@ include('assets\php\connect_db.php');
 
 //! ==========| Requete SQL for Invoices |==========
 
-    $sqlInvoice = 'SELECT * FROM invoices ORDER BY `dates` ASC LIMIT 0,5';
+    $sqlInvoice = 'SELECT * FROM invoices ORDER BY `dates` ASC LIMIT 5';
     $reqInvoice = $db->query($sqlInvoice);
 
     //* ==========| Recup les Datas |==========
@@ -29,7 +29,7 @@ include('assets\php\connect_db.php');
 
 //! ==========| Requete SQL for Contacts |==========
 
-    $sqlContact = 'SELECT * FROM contacts ORDER BY `id` ASC LIMIT 0,5';
+    $sqlContact = 'SELECT * FROM contacts ORDER BY `id` ASC LIMIT 5';
     $reqContact = $db->query($sqlContact);
 
     //* ==========| Recup les Datas |==========
@@ -52,7 +52,7 @@ include('assets\php\connect_db.php');
 
 //! ==========| Requete SQL for Societies |==========
 
-$sqlSocietie = 'SELECT * FROM societies ORDER BY `id` ASC LIMIT 0,5';
+$sqlSocietie = 'SELECT * FROM societies ORDER BY `id` ASC LIMIT 5';
 $reqSocietie = $db->query($sqlSocietie);
 
 //* ==========| Recup les Datas |==========
