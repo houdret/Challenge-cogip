@@ -1,46 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="sylvain valvassori">
+<?php
+session_start();
+// if (empty($_SESSION['id'])) exit();
+include 'connect_db.php';
 
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <?php include('assets\php\read.php'); ?>
+if (isset($_POST['type'])) {
+    if ($_POST['type']=="add") {
+        $name              = filter_var($_POST['name']             , FILTER_SANITIZE_STRING);
+        $difficulty        = filter_var($_POST['difficulty']       , FILTER_SANITIZE_STRING);
+        $distance          = filter_var($_POST['distance']         , FILTER_SANITIZE_NUMBER_FLOAT);
+        $duration          = filter_var($_POST['duration']         , FILTER_SANITIZE_NUMBER_FLOAT);
+        $height_difference = filter_var($_POST['height_difference'], FILTER_SANITIZE_NUMBER_FLOAT);
 
-    <title>Contacts</title>
-</head>
-<body>
-<!--! ====================| Header |==================== -->
-<!-- navigation nav -->
-<?php include('assets\php\navBar.php'); ?>
+        $sql = "INSERT INTO hiking (name, difficulty, distance, duration, height_difference)
+                VALUES ('$name', '$difficulty', '$distance', '$duration', '$height_difference')
+               ";
+        $req = $pdo->exec($sql);
+    }
 
-<h2>Contact: <?php echo $nom_conact_selectioner; ?></h2>
+    if ($_POST['type']=="edit") {
+        $id                 = filter_var($_POST['id']               , FILTER_SANITIZE_NUMBER_INT);
+        $name               = filter_var($_POST['name']             , FILTER_SANITIZE_STRING);
+        $difficulty         = filter_var($_POST['difficulty']       , FILTER_SANITIZE_STRING);
+        $distance           = filter_var($_POST['distance']         , FILTER_SANITIZE_NUMBER_FLOAT);
+        $duration           = filter_var($_POST['duration']         , FILTER_SANITIZE_NUMBER_FLOAT);
+        $height_difference  = filter_var($_POST['height_difference'], FILTER_SANITIZE_NUMBER_FLOAT);
 
-<span></span>
+        $sql = "UPDATE hiking SET name = '$name', difficulty = '$difficulty', distance = '$distance', duration = '$duration',
+                  height_difference = '$height_difference' WHERE id = '$id'";
+        $req = $pdo->exec($sql);
+    }
+}
 
-<section class="containerTables">
-    <p>Contact : <span><?php echo $nom_conact_selectioner;     ?></span></p>
-    <p>Society : <span><?php echo $society_conact_selectioner; ?></span></p>
-    <p>Email   : <span><?php echo $email_conact_selectioner;   ?></span></p>
-    <p>Phone   : <span><?php echo $phone_conact_selectioner;   ?></span></p>
-    <!--* ====================| table des factures |==================== -->
-    <div class='tableContainer'>
-        <h3>Contact for the invoices</h3>
-        <table class="tableContact">
-            <thead>
-                <tr class="tableHead">
-                    <th class="column1">N° Invoice</th>
-                    <th class="column2">Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php echo $contactDetail; ?>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-</body>     
-</html>

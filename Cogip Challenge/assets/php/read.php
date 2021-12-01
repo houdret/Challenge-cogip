@@ -8,7 +8,7 @@ include('connect_db.php');
 
 
 
-//! ==========| Requete SQL for Contacts |==========
+//! ====================| Requete SQL for Contacts |====================
 
     $sqlContact = 'SELECT * FROM contacts ORDER BY `id` ASC';
     $reqContact = $db->query($sqlContact);
@@ -29,11 +29,10 @@ include('connect_db.php');
             </tr>'
         ;   
     }
-//?=================================================
+//?=====================================================================
+//! ====================| Requete SQL for Clients |====================
 
-//! ==========| Requete SQL for Clients |==========
-
-$sqlClient = 'SELECT * FROM societies WHERE type="clients" ORDER BY `id` ASC ';
+$sqlClient = 'SELECT * FROM societies WHERE type="client" ORDER BY `id` ASC ';
 $reqClient = $db->query($sqlClient);
 
 //* ==========| Recup les Datas |==========
@@ -51,9 +50,8 @@ foreach($clients as $client ){
         </tr>'
     ;   
 }
-//?=================================================
-
-//! ==========| Requete SQL for Providers |==========
+//?=====================================================================
+//! ====================| Requete SQL for Providers |====================
 
 $sqlProvider = 'SELECT * FROM societies WHERE type="provider" ORDER BY `id` ASC ';
 $reqProvider = $db->query($sqlProvider);
@@ -73,9 +71,8 @@ foreach($providers as $provider ){
         </tr>'
     ;   
 }
-//?=================================================
-
-//! ==========| Requete SQL for Invoices |==========
+//?=====================================================================
+//! ====================| Requete SQL for Invoices |====================
 
 $sqlInvoice = 'SELECT * FROM invoices ORDER BY `dates` ASC' ;
 $reqInvoice = $db->query($sqlInvoice);
@@ -96,23 +93,6 @@ foreach($invoices as $invoice ){
         </tr>'
     ;   
 }
-//?=================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//?=====================================================================
 
 ?>

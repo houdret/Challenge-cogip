@@ -1,16 +1,18 @@
 // * ========================== | Import |  ==========================
 @import "./libs/reset.scss";
 @import "./libs/fonts.scss";
-@import "./libs/tableStyle.scss";
+@import "./libs/tableStyle.scss";  //importation du style pour les tableaux
 
 // * ========================== | Setup Var |  ==========================
 :root{
-    --clr-main:        rgb(34, 55, 100);
+    --clr-main:        rgb(119, 137, 175);
     --clr-secondary:   rgb(245, 245, 245);
     --clr-accent:      rgb(191,138,73);
     --clr-null:        rgb(128, 128, 128);
     --clr-white:       rgb(255, 255, 255);
     --clr-black:       rgb(0, 0, 0);
+    --clr-error:       rgb(209, 30, 30);
+    --clr-success:     rgb(2, 189, 2);
 
     --clr-table-th:      rgb(22, 135, 187);
     --clr-table-tr:      rgb(245, 245, 245);
@@ -18,6 +20,7 @@
     --clr-text-tr-hover: rgb(85, 85, 85);
 
     --font-main: 'OpenSans-Regular';
+    --fontS-error: 1.2em;
 }
 // var(--white-color);
 
@@ -65,14 +68,68 @@ nav {
         color: var( --clr-table-th);
     }
 }
-// * ========================== | Table |  ==========================
+// * ========================== | Form |  ==========================
+
+.formContainer{
+
+    margin: 5rem auto 0;
+    width: fit-content;
+
+    form{
+        position: relative;
+        margin: 3rem 0;
+        h3{
+            font-size: 2rem;
+            margin: 0 0 .5rem 0;
+        }
+
+        input, select{
+            font-size: 1.5rem;
+            font-family: var(--font-main);
+            margin: 0 .2rem;
+            padding: 0 1rem;
+
+            width: 20rem;
+            height: 3rem;
+
+            background-color: var(--clr-secondary);
+            border-radius: .3rem;
+            border: none;
+            outline: none;
+        }
+        
+        input[type=submit]{
+            width: 6rem;
+            height: 3rem;
+            cursor: pointer;
+        }
+    }
+}
+
+.errorMessage{
+    position: absolute;
+    transform: translateY(3.5rem) translateX(-20rem);
+    width: fit-content;
+    color:       var(--clr-error);
+    font-size:   var(--fontS-error);
+    font-weight: bold;
+    font-family: var(--font-main);
+}
+.successMessage{
+    color:       var(--clr-success);
+    font-size:   var(--fontS-error);
+    font-weight: bold;
+    font-family: var(--font-main);
+}
+
+// * ========================== | Tables |  ==========================
 
 // .tablesContainer{}
 
 .tableContainer {
     margin: 0 auto;
     width: fit-content;
-    padding: 33px 30px;
+    padding: 3.3rem 3rem;
     
     p{
         font-size: 2rem;
@@ -86,6 +143,4 @@ nav {
         margin-top: 10rem;
     }
 }
-
-
-
+  

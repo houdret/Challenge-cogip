@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 30 nov. 2021 à 16:51
+-- Généré le : mer. 01 déc. 2021 à 00:17
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -72,21 +72,21 @@ CREATE TABLE IF NOT EXISTS `invoices` (
 --
 
 INSERT INTO `invoices` (`id`, `society_id`, `numbers`, `dates`, `society`, `type`) VALUES
-(1, 3, 'F20190404-004', '2019-04-04', 'Jouets Jean-Michel', 'Fournisseur'),
-(2, 2, 'F20190404-003', '2019-04-04', 'Dunder Mifflin', 'Client'),
-(3, 6, 'F20190404-002', '2019-04-04', 'Pierre Cailloux  ', 'Fournisseur'),
-(4, 9, 'F20190404-001', '2019-04-04', 'Pied Pipper', 'Client'),
-(5, 1, 'F20190403-654', '2019-04-03', 'Raviga ', 'Client'),
-(6, 3, 'F20180404-004', '2018-04-04', 'Jouets Jean-Michel', 'Fournisseur'),
-(7, 2, 'F20180414-003', '2018-04-14', 'Dunder Mifflin', 'Client'),
-(8, 6, 'F20180408-002', '2018-04-08', 'Pierre Cailloux  ', 'Fournisseur'),
-(9, 9, 'F20180407-001', '2018-04-07', 'Pied Pipper', 'Client'),
-(10, 1, 'F20180403-654', '2018-04-03', 'Raviga ', 'Client'),
-(11, 3, 'F20190404-004', '2019-04-04', 'Jouets Jean-Michel', 'Fournisseur'),
-(12, 2, 'F20170404-003', '2017-04-04', 'Dunder Mifflin', 'Client'),
-(13, 6, 'F20170524-002', '2017-05-24', 'Pierre Cailloux  ', 'Fournisseur'),
-(14, 9, 'F20170404-001', '2017-04-04', 'Pied Pipper', 'Client'),
-(15, 1, 'F20170403-654', '2017-04-03', 'Raviga ', 'Client');
+(1, 3, 'F20190404-004', '2019-04-04', 'Jouets Jean-Michel', 'provider'),
+(2, 2, 'F20190404-003', '2019-04-04', 'Dunder Mifflin', 'client'),
+(3, 6, 'F20190404-002', '2019-04-04', 'Pierre Cailloux  ', 'provider'),
+(4, 9, 'F20190404-001', '2019-04-04', 'Pied Pipper', 'client'),
+(5, 1, 'F20190403-654', '2019-04-03', 'Raviga ', 'client'),
+(6, 3, 'F20180404-004', '2018-04-04', 'Jouets Jean-Michel', 'provider'),
+(7, 2, 'F20180414-003', '2018-04-14', 'Dunder Mifflin', 'client'),
+(8, 6, 'F20180408-002', '2018-04-08', 'Pierre Cailloux  ', 'provider'),
+(9, 9, 'F20180407-001', '2018-04-07', 'Pied Pipper', 'client'),
+(10, 1, 'F20180403-654', '2018-04-03', 'Raviga ', 'client'),
+(11, 3, 'F20190404-004', '2019-04-04', 'Jouets Jean-Michel', 'provider'),
+(12, 2, 'F20170404-003', '2017-04-04', 'Dunder Mifflin', 'client'),
+(13, 6, 'F20170524-002', '2017-05-24', 'Pierre Cailloux  ', 'provider'),
+(14, 9, 'F20170404-001', '2017-04-04', 'Pied Pipper', 'client'),
+(15, 1, 'F20170403-654', '2017-04-03', 'Raviga ', 'client');
 
 -- --------------------------------------------------------
 
@@ -109,10 +109,10 @@ CREATE TABLE IF NOT EXISTS `societies` (
 --
 
 INSERT INTO `societies` (`id`, `name`, `vat`, `country`, `type`) VALUES
-(1, 'Raviga ', 'US456 654 342', 'United States ', 'clients'),
-(2, 'Dunder Mifflin ', 'US678 765 765 ', 'United States', 'clients'),
-(3, 'Jouets Jean-Michel', 'FR 677 544 000', ' France', 'clients'),
-(4, 'Bob Vance Refrig', 'US456 654 687', 'United States ', 'clients'),
+(1, 'Raviga ', 'US456 654 342', 'United States ', 'client'),
+(2, 'Dunder Mifflin ', 'US678 765 765 ', 'United States', 'client'),
+(3, 'Jouets Jean-Michel', 'FR 677 544 000', ' France', 'client'),
+(4, 'Bob Vance Refrig', 'US456 654 687', 'United States ', 'client'),
 (5, 'Belgalol', 'BE0876 654 665', 'Belgique  ', 'provider'),
 (6, 'Pierre Cailloux ', 'FR 678 908 654 ', 'France ', 'provider'),
 (7, 'Proximdr ', 'BE0876 985 665', ' Belgique ', 'provider'),
