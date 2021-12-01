@@ -1,10 +1,11 @@
 <?php
 //* =============== | Setup Variable| ===============
-$firstNameErr = $lastNameErr = $typeErrInvoice = $typeErrCompany = $emailErr = $nameErr = $datesErr = $numbersErr = $phoneErr = $vatErr = $countryErr = $societyErr = $successInvoiceForm = $successSocietyForm = $successContactForm =''; 
-$firstName    = $lastName    = $type    = $email    = $name    = $dates    = $numbers    = $phone    = $vat    = $country  = $formOk = $society = ''; 
-// 0                 1         2          3          4           5           6             7           8         9
+$firstNameErr = $lastNameErr = $typeErrInvoice = $typeErrCompany = $emailErr = $nameErr = $datesErr = $numbersErr = $phoneErr = $vatErr = $countryErr = $societyErr = $successInvoiceForm = $successSocietyForm = $successContactForm = $firstName = $lastName = $type = $email = $name = $dates = $numbers = $phone = $vat = $country = $society = ''; 
+
 
 $msgError = array('First Name is required.', 'Last Name is required.', 'Type is required.', 'Email is required.', 'Name is required.', 'Date is required.', 'Numbers is required.', 'Phone is required.', 'VAT is required.', 'Country is required.', 'Society is required.');
+//?===============================================================================================================================================================
+
 
 // * ========================== | Functions | ==========================
 function setErrorFor($input, $indexMsgErr){
@@ -32,9 +33,10 @@ function testDate($input){
   $date = date_parse($input);
   return !checkdate($date) ? $msgErrorTag : 'ok';
 }
+//?===============================================================================================================================================================
+
 
 //* =============== | Test form Invoice | ===============
-
 if(isset($_POST['submitInvoice']) && $_POST['submitInvoice'] != '') {
 
     $nameInvoice    = $_POST['society'];
@@ -87,8 +89,10 @@ if(isset($_POST['submitInvoice']) && $_POST['submitInvoice'] != '') {
         return $successSocietyForm = '<p class="failedMessage">les données n\'ont pas été enregistrées !</p>';
     }
 }
-//* =============== | Test form Company | ===============
+//?===============================================================================================================================================================
 
+
+//* =============== | Test form Company | ===============
 if(isset($_POST['submitCompany']) && $_POST['submitCompany'] != '') {
     
     $nameCompany = $_POST['name'];
@@ -141,11 +145,10 @@ if(isset($_POST['submitCompany']) && $_POST['submitCompany'] != '') {
         return $successSocietyForm = '<p class="failedMessage">les données n\'ont pas été enregistrées !</p>';
     }
 }
+//?===============================================================================================================================================================
 
 
 //* =============== | Test form Contact | ===============
-
-
 if(isset($_POST['submitContact']) && $_POST['submitContact'] != '') {
 
     $lastName  = $_POST['lastName'];
@@ -211,6 +214,7 @@ if(isset($_POST['submitContact']) && $_POST['submitContact'] != '') {
         return $successSocietyForm = '<p class="failedMessage">les données n\'ont pas été enregistrées !</p>';
     }
 }
+//?===============================================================================================================================================================
 
 
 
