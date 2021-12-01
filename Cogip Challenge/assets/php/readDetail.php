@@ -48,7 +48,7 @@ if(isset($_GET['id'])){
     if($results->rowCount() > 0){
         
         $rowsA = $results->fetch();
-        $rows = $results->fetchAll();
+        $rows  = $results->fetchAll();
     
         
         

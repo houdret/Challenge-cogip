@@ -44,25 +44,29 @@
             <?php echo isset($typeErrInvoice) ? $typeErrInvoice : null; ?>
             <input name='submitInvoice' type="submit" value="ADD">
         </form>
-    
+        <?php echo $successInvoiceForm; ?>
         <!--* ====================| Form des sociétés |==================== -->
         <form class="societyForm" action="index.php" method="post">
             <h3>Add a new company</h3>
             <input name='name'    type="text" placeholder="Company name">
             <?php echo isset($nameErrCompany) ? $nameErrCompany : null; ?>
+
             <input name='vat'     type="text" placeholder="VAT numbers">
             <?php echo isset($vatErr) ? $vatErr : null; ?>
+
             <input name='country' type="text" placeholder="Country">
             <?php echo isset($countryErr) ? $countryErr : null; ?>
+
             <select name="type">
                 <option value=""  selected>Type</option>
                 <option value="client"    >Client</option>
                 <option value="provider"  >Provider</option>
             </select>
             <?php echo isset($typeErrCompany) ? $typeErrCompany : null; ?>
+            
             <input name='submitCompany'  type="submit" value="ADD">
         </form>
-        <?php echo $successADD; ?>
+        <?php echo $successSocietyForm; ?>
         <!--* ====================| Form des contacts |==================== -->
         <form class="contactForm" action="index.php" method="post">
             <h3>Add a new contact</h3>
@@ -73,9 +77,12 @@
             <input name='phone'     type="text"  placeholder="Phone number">
             <?php echo isset($phoneErr) ? $phoneErr : null; ?>
             <input name='email'     type="email" placeholder="Address mail"> 
-            <?php echo isset($mailErr) ? $mailErr : null; ?>
+            <?php echo isset($emailErr) ? $emailErr : null; ?>
+            <input name='society'   type="text" placeholder="Company name"> 
+            <?php echo isset($societyErr) ? $societyErr : null; ?>
             <input name='submitContact' type="submit" value="ADD">
         </form>
+        <?php echo $successContactForm; ?>
     </section>
         
     <!--! ====================| Section Tables |==================== -->
