@@ -30,7 +30,7 @@
         <!--* ====================| Form des factures |==================== -->
         <form class="invoiceForm" action="index.php" method="post">
             <h3>Add a new invoice</h3>
-            <input name='name'    type="text" placeholder="Company name">
+            <input name='society'    type="text" placeholder="Company name">
             <?php echo isset($nameErrInvoice) ? $nameErrInvoice : null; ?>
             <input name='numbers' type="text" placeholder="Invoice numbers">
             <?php echo isset($numbersErr) ? $numbersErr : null; ?>
@@ -58,7 +58,7 @@
             <?php echo isset($countryErr) ? $countryErr : null; ?>
 
             <select name="type">
-                <option value=""  selected>Type</option>
+                <option value="" selected>Type</option>
                 <option value="client"    >Client</option>
                 <option value="provider"  >Provider</option>
             </select>

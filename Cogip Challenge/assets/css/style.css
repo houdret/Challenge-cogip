@@ -250,7 +250,7 @@ nav a:hover {
   cursor: pointer;
 }
 
-.errorMessage {
+.errorInputMsg {
   position: absolute;
   -webkit-transform: translateY(3.5rem) translateX(-20rem);
           transform: translateY(3.5rem) translateX(-20rem);
@@ -264,7 +264,16 @@ nav a:hover {
 }
 
 .successMessage {
+  margin-left: 0.6rem;
   color: var(--clr-success);
+  font-size: var(--fontS-error);
+  font-weight: bold;
+  font-family: var(--font-main);
+}
+
+.failedMessage {
+  margin-left: 0.6rem;
+  color: var(--clr-error);
   font-size: var(--fontS-error);
   font-weight: bold;
   font-family: var(--font-main);
