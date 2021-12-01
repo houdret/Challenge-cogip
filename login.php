@@ -17,6 +17,7 @@
                     <li><a href="contact.php">Contacts</a></li>
                     <li>
                         <?php
+                            session_start();
                             if (isset($_SESSION['id'])) {
                                 ?>
                                 ↓ Admin
