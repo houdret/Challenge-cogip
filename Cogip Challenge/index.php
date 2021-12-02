@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="assets\js\clickRow.js"></script>
     <?php 
-    include('./assets\php\homeDatas.php'); 
+    include('./assets\php\read_Home_data.php'); 
     include('./assets\php\create.php');
     ?>
 

@@ -4,7 +4,7 @@
 
 <?php 
 //* ==========| Connect DB |==========
-include('connect_db.php');
+include('connect_dataBase.php');
 
 
 
@@ -21,7 +21,7 @@ include('connect_db.php');
     $contactDirectory = '';
     foreach($contacts as $contact ){
         $contactDirectory .= 
-            '<tr data-href="assets\php\detailContact.php?id='.$contact['id'].'">
+            '<tr data-href="assets\php\detail_Contact.php?id='.$contact['id'].'">
                 <td class="column1">'.$contact['lastName'].' '.$contact['firstName'].'</td>
                 <td class="column2">'.$contact['phone']  .'</td>
                 <td class="column3">'.$contact['email']  .'</td>
@@ -43,7 +43,7 @@ $clients = $reqClient -> fetchALL();
 $clientDirectory = '';
 foreach($clients as $client ){
     $clientDirectory .= 
-        '<tr data-href="societies.php">
+        '<tr data-href="assets\php\detail_Society.php?id='.$client['id'].'">
             <td class="column1">'.$client['name']   .'</td>
             <td class="column2">'.$client['vat']    .'</td>
             <td class="column3">'.$client['country'].'</td>
@@ -64,7 +64,7 @@ $providers = $reqProvider -> fetchALL();
 $providerDirectory = '';
 foreach($providers as $provider ){
     $providerDirectory .= 
-        '<tr data-href="societies.php">
+        '<tr data-href="assets\php\detail_Society.php?id='.$provider['id'].'">
             <td class="column1">'.$provider['name']   .'</td>
             <td class="column2">'.$provider['vat']    .'</td>
             <td class="column3">'.$provider['country'].'</td>
@@ -85,7 +85,7 @@ $invoices = $reqInvoice -> fetchALL();
 $invoicesDirectory = '';
 foreach($invoices as $invoice ){
     $invoicesDirectory .= 
-        '<tr data-href="invoices.php">
+        '<tr data-href="assets\php\detail_Invoice.php?id='.$invoice['id'].'">
             <td class="column1">'.$invoice['numbers'].'</td>
             <td class="column2">'.$invoice['dates']  .'</td>
             <td class="column3">'.$invoice['society'].'</td>

@@ -1,7 +1,7 @@
 <?php
 //* =============== | Setup Variable| ===============
 $firstNameErr = $lastNameErr = $typeErrInvoice = $typeErrCompany = $emailErr = $nameErr = $datesErr = $numbersErr = $phoneErr = $vatErr = $countryErr = $societyErr = $successInvoiceForm = $successSocietyForm = $successContactForm = $firstName = $lastName = $type = $email = $name = $dates = $numbers = $phone = $vat = $country = $society = ''; 
-
+$ok = 0;
 
 $msgError = array('First Name is required.', 'Last Name is required.', 'Type is required.', 'Email is required.', 'Name is required.', 'Date is required.', 'Numbers is required.', 'Phone is required.', 'VAT is required.', 'Country is required.', 'Society is required.');
 //?===============================================================================================================================================================
@@ -86,7 +86,7 @@ if(isset($_POST['submitInvoice']) && $_POST['submitInvoice'] != '') {
 
         return $successInvoiceForm = '<p class="successMessage">les données ont bien été enregistrées!</p>';
     }else{ 
-        return $successSocietyForm = '<p class="failedMessage">les données n\'ont pas été enregistrées !</p>';
+        return $successInvoiceForm = '<p class="failedMessage">les données n\'ont pas été enregistrées !</p>';
     }
 }
 //?===============================================================================================================================================================
@@ -211,7 +211,7 @@ if(isset($_POST['submitContact']) && $_POST['submitContact'] != '') {
 
         return $successContactForm = '<p class="successMessage">les données ont bien été enregistrées!</p>';
     }else{ 
-        return $successSocietyForm = '<p class="failedMessage">les données n\'ont pas été enregistrées !</p>';
+        return $successContactForm = '<p class="failedMessage">les données n\'ont pas été enregistrées !</p>';
     }
 }
 //?===============================================================================================================================================================
