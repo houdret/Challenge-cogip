@@ -3,7 +3,7 @@
 
     $servername = "localhost";
     $bddUsername = "root";
-    $bddPassword = "";
+    $bddPassword = "root";
 
     // get input by the page "login.php"
     $logUsername = filter_var($_POST['login'], FILTER_SANITIZE_STRING);
