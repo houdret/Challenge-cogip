@@ -2,7 +2,12 @@
 //* ==========| Connect DB |==========
 include('connect_dataBase.php');
 
-//* ==========| Setup Variable |==========
+
+
+
+
+
+//* ==========| Setup Variable for Contacts |==========
 $contactDetailName = $contactDetailSociety = $contactDetailEmail = $contactDetailPhone = $contactDetail = ''; 
 
 //! ==========| Read Detail for Contacts |==========
@@ -21,11 +26,13 @@ if(isset($_GET['id'])){
     if($results->rowCount() > 0){
         $rows  = $results->fetchAll(PDO::FETCH_ASSOC);
         
+        //* ====================| Infos du contact |==================== 
         $contactDetailName    = $rows[0]['lastName'].' '.$rows[0]['firstName'];
         $contactDetailSociety = $rows[0]['society'];
         $contactDetailEmail   = $rows[0]['email'];  
         $contactDetailPhone   = $rows[0]['phone'];  
-        
+
+        //* ====================| table des factures |==================== 
         foreach($rows as $row){
             $contactDetail .=
                 '<tr>
@@ -39,7 +46,7 @@ if(isset($_GET['id'])){
 }
 //?===============================================================================================================================================================
 
-//* ==========| Setup Variable |==========
+//* ==========| Setup Variable for Society |==========
 $societyDetailName = $societyDetailVAT = $societyDetailType = $societyDetailContact = $societyDetailInvoice = '';
 
 //! ==========| Read Detail for Society |==========
@@ -59,10 +66,12 @@ if(isset($_GET['id'])){
     if($results->rowCount() > 0){
         $rows  = $results->fetchAll(PDO::FETCH_ASSOC);
         
+        //* ====================| Infos de la société |==================== 
         $societyDetailName = $rows[0]['name'];
         $societyDetailVAT  = $rows[0]['vat'];
         $societyDetailType = $rows[0]['type'];
          
+        //* ====================| table des contacts |==================== 
         foreach($rows as $row){
             $societyDetailContact .=
                 '<tr>
@@ -73,6 +82,7 @@ if(isset($_GET['id'])){
             ;
         }
 
+        //* ====================| table des factures |==================== 
         foreach($rows as $row){
             $societyDetailInvoice .=
                 '<tr>
@@ -86,7 +96,7 @@ if(isset($_GET['id'])){
 }
 //?===============================================================================================================================================================
 
-//* ==========| Setup Variable |==========
+//* ==========| Setup Variable for Invoice |==========
 $invoiceDetailNumber = $invoiceDetailSociety = $invoiceDetailContact = '';
 
 //! ==========| Read Detail for Invoice |==========
@@ -106,9 +116,10 @@ if(isset($_GET['id'])){
     if($results->rowCount() > 0){
         $rows  = $results->fetchAll(PDO::FETCH_ASSOC);
         
+        //* ====================| Infos de la facture|==================== 
         $invoiceDetailNumber = $rows[0]['numbers'];
 
-        
+        //* ====================| table des sociétés |==================== 
         foreach($rows as $row){
             $invoiceDetailSociety .=
             '<tr>
@@ -118,6 +129,8 @@ if(isset($_GET['id'])){
             </tr>'
             ;
         }
+
+        //* ====================| table des contacts |==================== 
         foreach($rows as $row){
             $invoiceDetailContact .=
                 '<tr>

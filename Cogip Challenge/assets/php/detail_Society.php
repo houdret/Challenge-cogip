@@ -16,17 +16,21 @@
 <!-- navigation nav -->
 <?php include('navBar.php'); ?>
 
+<!--! ====================| Content |==================== -->
 <h2>Society : <?php echo $societyDetailName; ?></h2>
 
 <section class="containerTables">
-    <!--* ====================| table des factures |==================== -->
+    
     <!-- &ensp; ajout un espace de 2 + l'espace compris entre la balise et les caractères -->
     <!-- https://blog.hubspot.com/website/html-space -->
 
     <div class='tableContainer'>
+        
+        <!--* ====================| Infos de la société |====================  -->
         <p>VAT&ensp;&ensp;: &ensp;<span><?php echo $societyDetailVAT;  ?></span></p>
         <p>Type&ensp;:      &ensp;<span><?php echo $societyDetailType; ?></span></p>
-        
+
+        <!--* ====================| table des contacts |==================== -->
         <h3>The contact persons</h3>
         <table class="tableContact">
             <thead>
@@ -41,6 +45,7 @@
             </tbody>
         </table>
 
+        <!--* ====================| table des factures |==================== -->
         <h3>The society's invoices</h3>
         <table class="tableInvoice">
             <thead>
@@ -56,6 +61,5 @@
         </table>
     </div>
 </section>
-
 </body>     
 </html>
