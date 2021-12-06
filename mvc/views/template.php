@@ -40,8 +40,8 @@
 
 <?= $content; ?>
 
-<footer class="footer">
+<!-- <footer class="footer">
     <p>Create by Valvassori Sylvain</p>
-</footer>
+</footer> -->
 </body>
 </html>
