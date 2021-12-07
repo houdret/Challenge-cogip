@@ -19,11 +19,12 @@ abstract class Model{
 
     //* ==========| Récupére la connexion à la DB |==========
     protected function getBdd(){
-        //on fait une vérification si c'est null alors on met à jour la bdd avec la méthode setDbb
+        //on fait une vérification si c'est null alors on met à jour la bdd avec la méthode setBdd
         if(self::$_bdd == null)$this->setBdd();
         return self::$_bdd;
     }
-    
+
+    //* ==========| Récupére toutes les datas de la Bdd |==========
     // 1er méthode pour récuper toutes les données d'une table
     protected function getAll($tableName, $objectName){
 
@@ -39,7 +40,5 @@ abstract class Model{
         $req->closeCursor();
     }
 }
-
-
 
 

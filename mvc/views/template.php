@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets\js\clickRow.js"></script>
 
-    <title><?= $tiltePage; ?></title>
+    <title><?= $titlePage; ?></title>
 
 </head>
 <body>
@@ -19,19 +19,19 @@
     <nav>
         <ul>
             <li>
-                <a href="?action=home"         >Home</a>
+                <a href="Home">Home</a>
             </li>
             <li>
-                <a href="action='contacts'">Contacts</a>
+                <a href="Contacts">Contacts</a>
             </li>
             <li>
-                <a href="index.php?action=<?php.'home'.?>"         >Societies</a>
+                <a href="Societies">Societies</a>
             </li>
             <li>
-                <a href="index.php?action=<?php.'home'.?>"         >Invoices</a>
+                <a href="Invoices">Invoices</a>
             </li>
             <li>
-                <a href="index.php?action=<?php.'home'.?>"         >Connexion</a>
+                <a href="Login">Connexion</a>
             </li>
         </ul>
     </nav>
@@ -40,8 +40,8 @@
 
 <?= $content; ?>
 
-<footer class="footer">
+<!-- <footer class="footer">
     <p>Create by Valvassori Sylvain</p>
-</footer>
+</footer> -->
 </body>
 </html>
