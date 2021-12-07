@@ -29,9 +29,34 @@ abstract class Model{
     protected function getAll($tableName, $objectName){
 
         $dataTable = [];
-        // $this->getBdd()
-        // self::$_bdd->
         $req = self::getBdd()->prepare('SELECT * FROM '.$tableName.' ORDER BY id DESC');
+        $req->execute();
+        while( $data = $req->fetch(PDO::FETCH_ASSOC)){
+            $dataTable[] = new $objectName($data);
+        }
+        return $dataTable;
+        $req->closeCursor();
+    }
+
+    //* ==========| Récupére les 5 dernière datas de la Bdd |==========
+    protected function getFive($tableName, $objectName){
+
+        $dataTable = [];
+        $req = self::getBdd()->prepare('SELECT * FROM '.$tableName.' ORDER BY id DESC LIMIT 0,5');
+        $req->execute();
+        while( $data = $req->fetch(PDO::FETCH_ASSOC)){
+            $dataTable[] = new $objectName($data);
+        }
+        return $dataTable;
+        $req->closeCursor();
+    }
+
+    //* ==========| Récupére le contact selectioné |==========
+    
+    protected function getDetail($tableName, $objectName, $contactID){
+        
+        $dataTable = [];
+        $req = self::getBdd()->prepare('SELECT * FROM '.$tableName.' LEFT JOIN invoices ON contacts.societyName = invoices.societyName WHERE contacts.id = '.$contactID);
         $req->execute();
         while( $data = $req->fetch(PDO::FETCH_ASSOC)){
             $dataTable[] = new $objectName($data);
@@ -42,3 +67,5 @@ abstract class Model{
 }
 
 
+// Propriétées -> encapsulation sert a protéger les propriétés
+// namespace -> permet de proterger une classe d'une possibilité de doublons

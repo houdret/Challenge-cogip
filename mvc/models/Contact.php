@@ -2,12 +2,12 @@
 // on va récupérer  toutes les données de manière sécurisé, on va les Hydrater
 
 class Contact {
-    private $_id;
-    private $_lastName;
-    private $_firstName;
-    private $_phone;
-    private $_email;
-    private $_societyName;
+    protected $_id;
+    protected $_lastName;
+    protected $_firstName;
+    protected $_phone;
+    protected $_email;
+    protected $_societyName;
 
 
     //* ==========| Constructeur |==========
@@ -58,7 +58,5 @@ class Contact {
     public function phone()       { return $this->_phone;       }
     public function email()       { return $this->_email;       }
     public function societyName() { return $this->_societyName; }
-    
-    
 }
 

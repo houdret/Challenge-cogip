@@ -6,7 +6,7 @@ table {
   overflow: hidden;
   margin: 0 auto;
 
-  width: 100rem;
+  
 }
 .tableHead th{
   font-family: var(--font-main);
@@ -32,7 +32,7 @@ tbody tr:nth-child(even) {
 
 tbody tr {
   font-family: var(--font-main);
-  font-size: 15px;
+  font-size: 1.5em;
   color: var(--clr-null);
   line-height: 1.2;
   font-weight: unset;

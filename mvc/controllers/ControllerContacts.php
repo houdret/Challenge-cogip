@@ -12,8 +12,6 @@ class ControllerContacts {
         if (isset($url) && count(array($url) ) > 1) {
             throw new Exception('Page not found');
         } else {
-            // $this->contacts();
-            // $this->invoices();
             $this->contacts();
         }
     }
@@ -27,25 +25,6 @@ class ControllerContacts {
         $this->_view = new View('Contacts');
         $this->_view->generate(array('contacts' => $contacts));
     }
-
-    //  //* ==========| Invoices |==========
-    // private function invoices(){
-    //     $this->_invoiceManager = new InvoiceManager; 
-    //     // getInvoices() c'est la méthode extand dans le datasManager
-    //     $invoices = $this->_invoiceManager->getInvoices();
-
-    //     $this->_view = new View('Home');
-    //     $this->_view->generate(array('invoices' => $invoices));
-    // }
-    // //* ==========| Societies |==========
-    // private function societies(){
-    //     $this->_societyManager = new SocietyManager; 
-    //     // getSocieties() c'est la méthode extand dans le datasManager
-    //     $societies = $this->_societyManager->getSocieties();
-
-    //     $this->_view = new View('Home');
-    //     $this->_view->generate(array('societies' => $societies));
-    // }
 }
 
 

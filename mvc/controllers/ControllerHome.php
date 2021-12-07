@@ -13,34 +13,28 @@ class ControllerHome {
         if (isset($url) && count(array($url) ) > 1) {
             throw new Exception('Page not found');
         } else {
-            // $this->contacts();
-            // $this->invoices();
             $this->home();
         }
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9003985e05be6c4fd3aabbf42bc58974e92b7fac
     //  //* ==========| Home |==========
     private function home(){
 
         //* ==========| Contacts |==========
         $this->_contactManager = new ContactManager; 
         // getContacts() c'est la méthode extand dans le datasManager
-        $contacts = $this->_contactManager->getContacts();
+        $contacts = $this->_contactManager->getFiveContacts();
 
 
         //* ==========| Invoices |==========
         $this->_invoiceManager = new InvoiceManager; 
         // getInvoices() c'est la méthode extand dans le datasManager
-        $invoices = $this->_invoiceManager->getInvoices();
+        $invoices = $this->_invoiceManager->getFiveInvoices();
 
         //* ==========| Societies |==========
         $this->_societyManager = new SocietyManager; 
         // getSocieties() c'est la méthode extand dans le datasManager
-        $societies = $this->_societyManager->getSocieties();
+        $societies = $this->_societyManager->getFiveSocieties();
 
      
         //* ==========| Home datas |==========
@@ -51,36 +45,6 @@ class ControllerHome {
             'societies' => $societies
         ));
     }
-
-
-    //  //* ==========| Contacts |==========
-    // private function contacts(){
-    //     $this->_contactManager = new ContactManager; 
-    //     // getContacts() c'est la méthode extand dans le datasManager
-    //     $contacts = $this->_contactManager->getContacts();
-
-    //     $this->_view = new View('Home');
-    //     $this->_view->generate(array('contacts' => $contacts));
-    // }
-
-    //  //* ==========| Invoices |==========
-    // private function invoices(){
-    //     $this->_invoiceManager = new InvoiceManager; 
-    //     // getInvoices() c'est la méthode extand dans le datasManager
-    //     $invoices = $this->_invoiceManager->getInvoices();
-
-    //     $this->_view = new View('Home');
-    //     $this->_view->generate(array('invoices' => $invoices));
-    // }
-    // //* ==========| Societies |==========
-    // private function societies(){
-    //     $this->_societyManager = new SocietyManager; 
-    //     // getSocieties() c'est la méthode extand dans le datasManager
-    //     $societies = $this->_societyManager->getSocieties();
-
-    //     $this->_view = new View('Home');
-    //     $this->_view->generate(array('societies' => $societies));
-    // }
 }
 
 
