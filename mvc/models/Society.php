@@ -8,6 +8,10 @@ class Society {
     private $_country;
     private $_type;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9003985e05be6c4fd3aabbf42bc58974e92b7fac
     //* ==========| Constructeur |==========
     // en paramètre, les données récupérés du fichier Model.php => $objectName($data);
     public function __construct(array $data){

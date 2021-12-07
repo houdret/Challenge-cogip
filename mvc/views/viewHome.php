@@ -16,7 +16,10 @@ $this->_titlePage = 'Home';
         ;   
     }
 
+<<<<<<< HEAD
     //! faire un for
+=======
+>>>>>>> 9003985e05be6c4fd3aabbf42bc58974e92b7fac
     //* ==========| Invoices |==========
     $datasInvoices = '';
     foreach($invoices as $invoice ){
@@ -45,6 +48,7 @@ $this->_titlePage = 'Home';
 ?>
 
         
+<<<<<<< HEAD
 <h2>Welcome to the COGIP</h2>
 
 
@@ -86,6 +90,49 @@ $this->_titlePage = 'Home';
                 </table>
         </div>
 
+=======
+<h2>COGIP: Contact directory</h2>
+
+
+ <!--! ====================| Section Tables |==================== -->
+ <section class="tablesContainer">
+        <!--* ====================| table des factures |==================== -->
+        <div class='tableContainer recentInvoices'>
+            <h3>Recent Invoices</h3>
+            <table class="tableInvoices">
+                    <thead>
+                        <tr class="tableHead">
+                            <th class="column1">Invoice number</th>
+                            <th class="column2">Dates</th>
+                            <th class="column3">Contact</th>
+                            <th class="column4">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?= $datasInvoices; ?>
+                    </tbody>
+            </table>
+        </div>
+
+        <!--* ====================| table des contacts |==================== -->
+        <div class='tableContainer recentContacts'>
+                <h3>Recent Contacts</h3>
+                <table class="tableContacts">
+                    <thead>
+                        <tr class="tableHead">
+                            <th class="column1">Name</th>
+                            <th class="column2">Phone</th>
+                            <th class="column3">Email</th>
+                            <th class="column4">Society</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?= $datasContacts; ?>
+                    </tbody>
+                </table>
+        </div>
+
+>>>>>>> 9003985e05be6c4fd3aabbf42bc58974e92b7fac
         <!--* ====================| table des sociétés |==================== -->
         <div class='tableContainer recentSocieties'>
         <h3>Recent Societies</h3>
