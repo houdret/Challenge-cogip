@@ -20,7 +20,7 @@ $this->_titlePage = 'Home';
     $datasInvoices = '';
     foreach($invoices as $invoice ){
         $datasInvoices .= 
-            '<tr data-href="DetailContact?id='.$contact->id().'">
+            '<tr data-href="DetailInvoive?'.$invoice->id().'">
                 <td class="column1">'.$invoice->numbers()    .'</td>
                 <td class="column2">'.$invoice->dates()      .'</td>
                 <td class="column3">'.$invoice->societyName().'</td> 
@@ -33,7 +33,7 @@ $this->_titlePage = 'Home';
     $datasSocieties = '';
     foreach($societies as $society ){
         $datasSocieties .= 
-            '<tr data-href="assets\php\detail_Society.php?id='.$society->id().'">
+            '<tr data-href="DetailSociety?'.$society->id().'">
                 <td class="column1">'.$society->name()   .'</td>
                 <td class="column2">'.$society->vat()    .'</td>
                 <td class="column3">'.$society->country().'</td>

@@ -8,7 +8,7 @@ $this->_titlePage = 'Societies';
     foreach($societies as $society ){
         if($society->type() == 'client'){
             $clientDirectory .= 
-                '<tr data-href="assets\php\detail_Society.php?id='.$society->id().'">
+                '<tr data-href="DetailSociety?'.$society->id().'">
                     <td class="column1">'.$society->name()   .'</td>
                     <td class="column2">'.$society->vat()    .'</td>
                     <td class="column3">'.$society->country().'</td>
@@ -21,7 +21,7 @@ $this->_titlePage = 'Societies';
     foreach($societies as $society ){
         if($society->type() == 'provider'){
             $providerDirectory .= 
-                '<tr data-href="assets\php\detail_Society.php?id='.$society->id().'">
+                '<tr data-href="DetailSociety?'.$society->id().'">
                     <td class="column1">'.$society->name()   .'</td>
                     <td class="column2">'.$society->vat()    .'</td>
                     <td class="column3">'.$society->country().'</td>

@@ -1,12 +1,14 @@
 <?php
 //Explication router : https://youtu.be/Q9PZXoe-aAE
+
+// Propriétées -> encapsulation sert a protéger les propriétés
+// namespace -> permet de proterger une classe d'une possibilité de doublons
+
 require_once('views/View.php');
 
 class Router {
-
     private $_ctrl; //controller
     private $_view;
-    
     
     // l'autoloader charge uniquement les classes du dossier "models"
     public function routeRequest(){
@@ -27,11 +29,10 @@ class Router {
                 // controller sera égale au 1er paramètre
                 // ucfirst (1er lettre en Majuscule) / strtolower  (tout le reste en miniscule)
                 $controller = ucfirst(strtolower($url[0]));
-            
+                
                 //nom du fichier "Controller" + suite du nom choisi par l'action (exemple:choix de la page)
                 $controllerClass = "Controller".$controller;
 
-               
                 //nom du dossier "controllers/" + le du nom fichier choisi  par l'action (exemple:choix de la page)
                 $controllerFile  = "controllers/".$controllerClass.".php"; 
                 

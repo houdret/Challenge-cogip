@@ -21,6 +21,6 @@ class DetailContact extends contact{
 
     //* ==========| Getters |==========
         //* ==========| Invoice Infos |==========
-        public function numbers()     { return $this->_numbers;     }
-        public function dates()       { return $this->_dates;       }
+        public function numbers() { return $this->_numbers; }
+        public function dates()   { return $this->_dates;   }
 }

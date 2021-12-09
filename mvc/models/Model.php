@@ -51,12 +51,23 @@ abstract class Model{
         $req->closeCursor();
     }
 
-    //* ==========| Récupére le contact selectioné |==========
+    //* ==========| Récupére l'ID de l'élément selected |==========
+    protected function getID(){
+        $url = explode('?',$_SERVER['REQUEST_URI']);
+        $lastParam = end($url);
+
+        if (preg_match('~[0-9]+~',$lastParam, $matches)) {
+                $id = $matches[0];
+        }
+
+        return $id;
+    }
+
+    //* ==========| Récupére les datas du contact selectioné |==========
     
-    protected function getDetail($tableName, $objectName, $contactID){
-        
+    protected function getDataDetailContact($tableName, $objectName, $id){
         $dataTable = [];
-        $req = self::getBdd()->prepare('SELECT * FROM '.$tableName.' LEFT JOIN invoices ON contacts.societyName = invoices.societyName WHERE contacts.id = '.$contactID);
+        $req = self::getBdd()->prepare('SELECT * FROM '.$tableName.' LEFT JOIN invoices ON contacts.societyName = invoices.societyName WHERE contacts.id = '.$id);
         $req->execute();
         while( $data = $req->fetch(PDO::FETCH_ASSOC)){
             $dataTable[] = new $objectName($data);
@@ -64,8 +75,23 @@ abstract class Model{
         return $dataTable;
         $req->closeCursor();
     }
+
+    //* ==========| Récupére les datas de la société selectionée |==========
+    
+    protected function getDataDetailSociety($tableName, $objectName, $id){
+        $dataTable = [];
+        $req = self::getBdd()->prepare('
+        SELECT * FROM '.$tableName.'
+        LEFT JOIN invoices ON societies.name = invoices.societyName
+        LEFT JOIN contacts ON societies.name = contacts.societyName
+        WHERE societies.id =  '.$id);
+        $req->execute();
+        while( $data = $req->fetch(PDO::FETCH_ASSOC)){
+            $dataTable[] = new $objectName($data);
+        }
+        return $dataTable;
+        $req->closeCursor();
+    }
+
 }
 
-
-// Propriétées -> encapsulation sert a protéger les propriétés
-// namespace -> permet de proterger une classe d'une possibilité de doublons

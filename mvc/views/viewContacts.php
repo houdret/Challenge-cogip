@@ -7,7 +7,7 @@ $this->_titlePage = 'Contacts';
     $datasContacts = '';
     foreach($contacts as $contact ){
         $datasContacts .= 
-            '<tr data-href="DetailContact?id='.$contact->id().'">
+            '<tr data-href="DetailContact?'.$contact->id().'">
                 <td class="column1">'.$contact->lastName().' '.$contact->firstName().'</td>
                 <td class="column2">'.$contact->phone()      .'</td>
                 <td class="column3">'.$contact->email()      .'</td>
